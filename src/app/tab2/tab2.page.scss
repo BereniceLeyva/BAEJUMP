@@ -1,0 +1,145 @@
+.lore-content {
+  --background: #0b0f14;
+  padding: 16px;
+  color: white;
+}
+
+/* HEADER */
+.lore-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+/* Botón circular como en ranking */
+.back-button {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #1a1f26;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-button ion-icon {
+  font-size: 18px;
+  color: white;
+}
+
+/* Título */
+.lore-header h1 {
+  font-size: 26px;
+  font-weight: 600;
+  margin: 0;
+  color: #00d1b2; /* blanco suave como en la imagen */
+}
+
+/* CONTENEDOR PRINCIPAL */
+.chapter-container {
+  background: #161b22;
+  border-radius: 16px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+/* BANNER */
+.chapter-banner {
+  position: relative;
+  height: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.chapter-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #000, transparent);
+}
+
+/* TEXTO SOBRE IMAGEN */
+.chapter-text {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+}
+
+/* HISTORIA */
+.story-text {
+  color: #9aa4af;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* TITULOS */
+.section-title {
+  margin: 16px 0 10px;
+  color: #8b949e;
+}
+
+/* PERSONAJES */
+.character-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #161b22;
+  padding: 12px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+}
+
+.character-card img {
+  width: 50px;
+  height: 50px;
+}
+
+.character-card ion-icon {
+  margin-left: auto;
+  color: #8b949e;
+}
+
+/* ESCENARIOS */
+.scenarios-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+}
+
+.scenario-card {
+  min-width: 120px;
+  height: 100px;
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 8px;
+  font-size: 12px;
+}
+
+/* fondos */
+.forest {
+  background: url('/assets/img/esc.jpeg') center/cover;
+}
+
+.ruins {
+  background: url('/assets/img/esc1.jpeg') center/cover;
+}
+
+.cave {
+  background: url('/assets/img/esc3.jpeg') center/cover;
+}
+
+.scenario-card span {
+  position: relative;
+  z-index: 2;
+}

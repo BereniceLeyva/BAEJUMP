@@ -4,13 +4,31 @@ import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { provideHttpClient } from '@angular/common/http';
+import { makeEnvironmentProviders } from '@angular/core';
+
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideDatabase, getDatabase } from '@angular/fire/database'; // 👈 AQUI
+
+import { firebaseConfig } from 'src/environments/firebaseconfig';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    provideHttpClient(),
+    makeEnvironmentProviders([
+      provideFirebaseApp(() => initializeApp(firebaseConfig)),
+      provideFirestore(() => getFirestore()),
+      provideAuth(() => getAuth()),
+      provideDatabase(() => getDatabase()) // 👈 AQUI
+    ])
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -3,7 +3,7 @@
   color: white;
 }
 
-/* Contenedor header */
+/* HEADER */
 .custom-header {
   display: flex;
   align-items: center;
@@ -11,7 +11,7 @@
   padding: 16px;
 }
 
-/* Botón circular */
+/* Botón */
 .back-button {
   width: 40px;
   height: 40px;
@@ -46,7 +46,7 @@
   font-weight: bold;
 }
 
-/* Card (por si no lo tenías ya) */
+/* CARD */
 .info-card {
   margin: 16px;
   padding: 20px;
@@ -54,4 +54,20 @@
   background: linear-gradient(135deg, #0f3d3e, #0a2c2d);
   text-align: center;
   color: #a8f0e6;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-card ion-icon {
+  font-size: 40px;
+  color: #00d1b2;
+  margin-bottom: 10px;
+}
+
+.info-card p {
+  font-size: 14px;
+  color: #b6c2cf;
 }

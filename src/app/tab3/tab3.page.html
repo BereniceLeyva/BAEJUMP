@@ -1,17 +1,25 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="dark-bg">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Header personalizado -->
+  <div class="custom-header">
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+    <!-- Botón circular -->
+    <div class="back-button" (click)="goBack()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </div>
+
+    <!-- Textos -->
+    <div class="titles">
+      <p class="subtitle">Mejores puntajes de todos los tiempos</p>
+      <h1>Rankings globales</h1>
+    </div>
+
+  </div>
+
+  <!-- Card -->
+  <div class="info-card">
+    <ion-icon name="trophy-outline"></ion-icon>
+    <p>Aquí se mostrarán los rankings de JumpRush</p>
+  </div>
+
 </ion-content>

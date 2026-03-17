@@ -1,17 +1,65 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="home-content">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- HEADER -->
+  <div class="header">
+    <p class="welcome">Bienvenido</p>
+    <h1><span>BAE</span> Games</h1>
+  </div>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <!-- GAME CARD -->
+  <div class="game-card">
+    <img src="assets/img/Jump.jpeg" alt="JumpRush">
+
+    <div class="overlay"></div>
+
+    <div class="badge">NUEVO</div>
+
+    <div class="game-info">
+      <h2>JumpRush</h2>
+      <p>Pixel Art - Endless Runner</p>
+    </div>
+  </div>
+
+  <!-- BOTONES -->
+  <div class="menu-buttons">
+    <div class="menu-card">
+      <ion-icon name="trophy-outline"></ion-icon>
+      <div>
+        <p>Rankings</p>
+        <small>Top jugadores</small>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <ion-icon name="newspaper-outline"></ion-icon>
+      <div>
+        <p>Noticias</p>
+        <small>Actualizaciones</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <h3 class="stats-title">Tus estadísticas</h3>
+
+  <div class="stats">
+    <div class="stat-card">
+      <ion-icon name="trending-up-outline"></ion-icon>
+      <h4>--</h4>
+      <small>Puntaje max</small>
+    </div>
+
+    <div class="stat-card">
+      <ion-icon name="time-outline"></ion-icon>
+      <h4>--</h4>
+      <small>Mejor tiempo</small>
+    </div>
+
+    <div class="stat-card">
+      <ion-icon name="game-controller-outline"></ion-icon>
+      <h4>--</h4>
+      <small>Partidas</small>
+    </div>
+  </div>
+
 </ion-content>

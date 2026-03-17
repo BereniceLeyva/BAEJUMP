@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-tab3',
@@ -8,6 +9,10 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  constructor(private location: Location) {}
+
+  goBack(){
+    this.location.back();
+  }
 
 }
