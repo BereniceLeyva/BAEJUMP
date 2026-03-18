@@ -1,0 +1,64 @@
+<ion-content class="lore-content">
+
+  <!-- HEADER -->
+  <div class="lore-header">
+    <div class="titles">
+    <p class="subtitle">LORE</p>
+    <h1>Historia del juego</h1>
+  </div>
+  </div>
+
+  <!-- CARD PRINCIPAL -->
+  <div class="chapter-container">
+
+    <!-- Banner -->
+    <div class="chapter-banner">
+      <img src="assets/img/capitulo1.png" />
+      <div class="overlay"></div>
+      <div class="chapter-text">
+        <small>CAPÍTULO 1</small>
+        <h2>El despertar</h2>
+      </div>
+    </div>
+
+    <!-- Historia -->
+    <div class="story-text">
+      <p>
+        Después de años en silencio, las antiguas plataformas de energía del mundo comenzaron a fallar, las Rush Coins, la fuente que mantiene activas las ciudades, empezó a dispersarse entre ruinas y estructuras abandonadas llenas de trampas. Un joven corredor despierta en medio de este caos con una misión clara: recorrer los caminos olvidados, recuperar las monedas y descubrir qué provocó la caída. Cada salto lo acerca más a la verdad… pero también a peligros que nadie había enfrentado antes.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- PERSONAJES -->
+  <h3 class="section-title">Personajes</h3>
+
+  <!-- ngFor dinámico -->
+  <div *ngFor="let p of personajes$ | async" class="character-card" (click)="abrirPersonaje(p)">
+    <img [src]="p.imagen" alt="{{p.nombre}}">
+    <div>
+      <h4>{{p.nombre}}</h4>
+      <small>Próximamente disponible</small>
+    </div>
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </div>
+
+  <!-- ESCENARIOS -->
+  <h3 class="section-title">Escenarios</h3>
+
+  <div class="scenarios-scroll">
+    <div class="scenario-card forest">
+      <div class="overlay"></div>
+      <span>Bosque ancestral</span>
+    </div>
+    <div class="scenario-card ruins">
+      <div class="overlay"></div>
+      <span>Ruinas de piedra</span>
+    </div>
+    <div class="scenario-card cave">
+      <div class="overlay"></div>
+      <span>Cueva oscura</span>
+    </div>
+  </div>
+
+</ion-content>

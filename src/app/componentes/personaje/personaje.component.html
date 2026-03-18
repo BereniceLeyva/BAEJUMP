@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="cerrar()" defaultHref="/tab2"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="titulo">{{ personaje.nombre }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding fondo">
+
+  <!-- Imagen del personaje -->
+  <div class="personaje-imagen">
+    <img [src]="personaje.imagen" [alt]="personaje.nombre" />
+  </div>
+
+  <!-- Card con información -->
+  <ion-card class="info-card">
+    <ion-card-content>
+      <p>{{ personaje.descripcion }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Accesorios -->
+  <div *ngIf="personaje.accesorios" class="accesorio-container">
+    <img [src]="personaje.accesorios" alt="Accesorio" class="accesorio-img" />
+  </div>
+
+</ion-content>

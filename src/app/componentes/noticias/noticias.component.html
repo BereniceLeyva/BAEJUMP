@@ -1,0 +1,17 @@
+<ion-content class="ion-padding">
+
+  <h1 class="titulo">Noticias</h1>
+
+  <div *ngFor="let n of noticias$ | async" class="noticia-card">
+
+    <img [src]="n.imagen" [alt]="n.titulo" class="noticia-img">
+
+    <div class="contenido">
+      <h2>{{ n.titulo }}</h2>
+      <small>{{ n.fecha }}</small>
+      <p>{{ n.descripcion }}</p>
+    </div>
+
+  </div>
+
+</ion-content>

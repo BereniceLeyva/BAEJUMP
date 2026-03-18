@@ -1,0 +1,160 @@
+/* Fondo general */
+.fondo {
+  --background: linear-gradient(180deg, #0d0d0d, #1a1a1a);
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Título */
+.titulo {
+  text-align: center;
+  font-weight: bold;
+  color: #00ffff;
+  letter-spacing: 1px;
+}
+
+/* Imagen del personaje */
+.personaje-imagen {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.personaje-imagen img {
+  width: 80%;
+  max-width: 280px;
+  border-radius: 20px;
+
+  /* Glow */
+  box-shadow: 
+    0 0 20px rgba(0, 255, 255, 0.5),
+    0 0 40px rgba(0, 255, 255, 0.2);
+
+  /* Animación flotante */
+  animation: float 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.personaje-imagen img:hover {
+  transform: scale(1.05);
+}
+
+/* Animación de flotar */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Card */
+.info-card {
+  margin-top: 25px;
+  border-radius: 20px;
+  background: rgba(28, 28, 28, 0.9);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 
+    0 0 15px rgba(0, 255, 255, 0.15);
+
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.info-card ion-card-title {
+  text-align: center;
+  color: #00ffff;
+  font-size: 22px;
+}
+
+.info-card p {
+  color: #cccccc;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+/* ========================= */
+/* ACCESORIOS MEJORADOS 🔥 */
+/* ========================= */
+
+.accesorio-container {
+  margin-top: 30px;
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(20, 20, 20, 0.9);
+  backdrop-filter: blur(8px);
+
+  box-shadow: 
+    0 0 20px rgba(255, 0, 255, 0.15);
+
+  text-align: center;
+  position: relative;
+
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* etiqueta tipo UI */
+.accesorio-container::before {
+  content: "Accesorios";
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  font-size: 10px;
+  color: #8a8f98;
+  background: #0d0d0d;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+
+
+/* imagen accesorio */
+.accesorio-img {
+  width: 90px;
+  border-radius: 14px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.03);
+
+  box-shadow: 
+    0 0 10px rgba(255, 0, 255, 0.4),
+    0 0 25px rgba(255, 0, 255, 0.2);
+
+  animation: float 3s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+/* efecto hover pro */
+.accesorio-img:hover {
+  transform: scale(1.1) rotate(2deg);
+
+  box-shadow: 
+    0 0 15px rgba(255, 0, 255, 0.7),
+    0 0 35px rgba(255, 0, 255, 0.4);
+}
+
+/* Animación aparición */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .personaje-imagen img {
+    width: 90%;
+  }
+
+  .accesorio-img {
+    width: 75px;
+  }
+}

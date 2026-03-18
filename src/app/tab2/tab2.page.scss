@@ -1,0 +1,200 @@
+.lore-content {
+  --background: #0b0f14;
+  padding: 16px;
+  color: white;
+}
+
+/* HEADER */
+.lore-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+}
+
+/* Botón circular */
+.back-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #1a1f26;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-button ion-icon {
+  font-size: 20px;
+  color: white;
+}
+
+/* CONTENEDOR TEXTOS */
+.titles {
+  display: flex;
+  flex-direction: column;
+}
+
+/* SUBTITULO */
+.subtitle {
+  font-size: 12px;
+  color: #8a8f98;
+  margin: 0;
+}
+
+/* TITULO PRINCIPAL */
+.lore-header h1 {
+  font-size: 22px;
+  margin: 0;
+  color: #00d1b2;
+  font-weight: bold;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.chapter-container {
+  background: #161b22;
+  border-radius: 16px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+/* BANNER */
+.chapter-banner {
+  position: relative;
+  height: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.chapter-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+
+/* OVERLAY */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #000, transparent);
+}
+
+/* TEXTO SOBRE IMAGEN */
+.chapter-text {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+}
+
+.chapter-text small {
+  font-size: 10px;
+  color: #8a8f98;
+}
+
+.chapter-text h2 {
+  margin: 0;
+  font-size: 18px;
+  color: white;
+}
+
+/* HISTORIA */
+.story-text {
+  color: #9aa4af;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* TITULOS DE SECCIÓN */
+.section-title {
+  margin: 16px 0 10px;
+  color: #8b949e;
+  font-size: 14px;
+}
+
+/* PERSONAJES */
+.character-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #161b22;
+  padding: 12px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  transition: transform 0.2s ease;
+}
+
+.character-card:active {
+  transform: scale(0.97);
+}
+
+.character-card img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.character-card h4 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.character-card small {
+  color: #8a8f98;
+}
+
+.character-card ion-icon {
+  margin-left: auto;
+  color: #8b949e;
+}
+
+/* ESCENARIOS */
+.scenarios-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.scenario-card {
+  min-width: 120px;
+  height: 100px;
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 8px;
+  font-size: 12px;
+  color: white;
+}
+
+/* FONDOS */
+.forest {
+  background: url('/assets/img/esc.jpeg') center/cover;
+}
+
+.ruins {
+  background: url('/assets/img/esc1.jpeg') center/cover;
+}
+
+.cave {
+  background: url('/assets/img/esc3.jpeg') center/cover;
+}
+
+/* TEXTO ESCENARIOS */
+.scenario-card span {
+  position: relative;
+  z-index: 2;
+}
+
+/* SCROLL PERSONALIZADO (opcional pro) */
+.scenarios-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.scenarios-scroll::-webkit-scrollbar-thumb {
+  background: #2a2f36;
+  border-radius: 10px;
+}
