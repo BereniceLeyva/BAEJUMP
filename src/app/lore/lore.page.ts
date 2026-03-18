@@ -6,14 +6,15 @@ import { Observable } from 'rxjs';
 import { Personaje } from '../interfaces/interfaces';
 import { PersonajeComponent } from '../componentes/personaje/personaje.component';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+
 @Component({
-  selector: 'app-tab2',
+  selector: 'app-lore',
   standalone: true,
   imports: [IonicModule, CommonModule],
-  templateUrl: './tab2.page.html',
-  styleUrls: ['./tab2.page.scss'],
+  templateUrl: './lore.page.html',
+  styleUrls: ['./lore.page.scss'],
 })
-export class Tab2Page {
+export class LorePage {
   private sanitizer = inject(DomSanitizer);
   private db = inject(Database);
   private modalCtrl = inject(ModalController);
@@ -22,7 +23,7 @@ export class Tab2Page {
 
   constructor() {
     const personajesRef = ref(this.db, 'personajes');
-    this.personajes$ = listVal(personajesRef); // 🔥 AQUÍ SE ARREGLA TODO
+    this.personajes$ = listVal(personajesRef);
   }
 
   async abrirPersonaje(personaje: Personaje) {

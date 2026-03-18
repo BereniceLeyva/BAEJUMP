@@ -22,7 +22,9 @@
 
   <!-- BOTONES -->
   <div class="menu-buttons">
-    <div class="menu-card">
+    
+    <!-- Rankings -->
+    <div class="menu-card" (click)="irRankings()">
       <ion-icon name="trophy-outline"></ion-icon>
       <div>
         <p>Rankings</p>
@@ -30,13 +32,15 @@
       </div>
     </div>
 
-    <div class="menu-card">
+    <!-- Noticias -->
+    <div class="menu-card" (click)="irNoticias()">
       <ion-icon name="newspaper-outline"></ion-icon>
       <div>
         <p>Noticias</p>
         <small>Actualizaciones</small>
       </div>
     </div>
+
   </div>
 
   <!-- STATS -->

@@ -1,19 +1,29 @@
 <ion-content class="dark-bg">
 
-  <!-- HEADER -->
   <div class="custom-header">
-
     <div class="titles">
       <p class="subtitle">Últimas actualizaciones del juego</p>
       <h1>Noticias</h1>
     </div>
+  </div>
+
+  <h3 class="section-title">Últimas noticias</h3>
+
+  <div *ngFor="let n of noticias$ | async" class="info-card">
+
+    <img *ngIf="n.imagen" [src]="n.imagen" [alt]="n.titulo" />
+
+    <div class="content">
+      <h4>{{ n.titulo }}</h4>
+      <p class="fecha">{{ n.fecha }}</p>
+      <p>{{ n.descripcion }}</p>
+    </div>
 
   </div>
 
-  <!-- CARD estilo imagen -->
-  <div class="info-card">
+  <div *ngIf="(noticias$ | async)?.length === 0" class="info-card">
     <ion-icon name="newspaper-outline"></ion-icon>
-    <p>Aquí se mostrarán las noticias de JumpRush</p>
+    <p>No hay noticias disponibles</p>
   </div>
 
 </ion-content>

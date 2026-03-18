@@ -26,7 +26,7 @@ import { firebaseConfig } from 'src/environments/firebaseconfig';
       provideFirebaseApp(() => initializeApp(firebaseConfig)),
       provideFirestore(() => getFirestore()),
       provideAuth(() => getAuth()),
-      provideDatabase(() => getDatabase()) // 👈 AQUI
+      provideDatabase(() => getDatabase())
     ])
   ],
   bootstrap: [AppComponent],

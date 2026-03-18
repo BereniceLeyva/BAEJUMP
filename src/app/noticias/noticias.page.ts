@@ -1,21 +1,25 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
-import { Location } from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { Database, ref, listVal } from '@angular/fire/database';
+import { Observable } from 'rxjs';
+import { Noticia } from '../interfaces/interfaces';
 
 @Component({
   selector: 'app-noticias',
   templateUrl: './noticias.page.html',
   styleUrls: ['./noticias.page.scss'],
-  standalone: true,
-  imports: [CommonModule, IonicModule, RouterModule]
+  standalone: false,
 })
-export class NoticiasPage {
+export class NoticiasPage implements OnInit {
 
-  constructor(private location: Location){}
+  noticias$!: Observable<Noticia[]>;
 
-  goBack(){
-    this.location.back();
+  constructor(private db: Database) {}
+
+  ngOnInit() {
+    const noticiasRef = ref(this.db, 'noticias'); // ⚡ Realtime
+    this.noticias$ = listVal(noticiasRef) as Observable<Noticia[]>;
   }
+
 }
