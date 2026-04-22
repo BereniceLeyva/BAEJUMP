@@ -40,7 +40,6 @@
   width: 100%;
   cursor: pointer;
   
-  /* Tus estilos originales de .menu-card */
   display: flex;
   align-items: center;
   gap: 10px;
@@ -53,7 +52,7 @@
 
   ion-icon {
     font-size: clamp(18px, 5vw, 22px);
-    color: #ff4d4d; /* Cambiado a rojo para Logout */
+    color: #ff4d4d; 
   }
 
   div p {
@@ -69,7 +68,7 @@
 
   &:hover {
     transform: translateY(-3px);
-    background: rgba(255, 77, 77, 0.1); /* Efecto hover rojizo */
+    background: rgba(255, 77, 77, 0.1); 
     box-shadow: 0 0 20px rgba(255, 77, 77, 0.2);
   }
 }
@@ -90,4 +89,25 @@
   height: 35px;
   border: 1.5px solid #00ffd0;
   margin-right: 10px;
+}
+
+/* ========================================= */
+/* CONFIGURACIÓN DE TABS (ESTADO SELECCIONADO) */
+/* ========================================= */
+ion-tab-bar {
+  --background: #020617; /* Fondo oscuro para que resalte el neón */
+  --border-color: rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(0, 255, 208, 0.1);
+}
+
+ion-tab-button {
+  --color: #8b949e; /* Color de los tabs no seleccionados */
+  --color-selected: #00ffd0; /* Tu color cian neón para el seleccionado */
+  
+  /* Esto asegura que el brillo se aplique al icono cuando esté activo */
+  &.tab-selected {
+    ion-icon {
+      filter: drop-shadow(0 0 5px rgba(0, 255, 208, 0.6));
+    }
+  }
 }
