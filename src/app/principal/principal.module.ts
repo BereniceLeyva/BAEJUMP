@@ -14,6 +14,6 @@ import { PrincipalPage } from './principal.page';
     FormsModule,
     PrincipalPageRoutingModule
   ],
-  declarations: [PrincipalPage]
+  declarations: []
 })
 export class PrincipalPageModule {}

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { RankingService } from '../services/ranking';
+// Importamos Auth para obtener los datos del perfil
+import { Auth, authState } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-inicio',
@@ -12,6 +14,11 @@ export class InicioPage implements OnInit {
 
   stats: any = {};
   playerID: string = '';
+  // Variable para el nombre que verás en el HTML
+  nombreUsuario: string = 'Jugador'; 
+
+  // Inyectamos Auth usando el nuevo método inject
+  private auth = inject(Auth);
 
   constructor(
     private router: Router,
@@ -19,7 +26,10 @@ export class InicioPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    // 🔥 Obtener ID guardado
+    // 1. Obtener datos del usuario de Google
+    this.obtenerDatosUsuario();
+
+    // 2. Obtener ID guardado para las estadísticas
     this.playerID = localStorage.getItem('playerId') || '';
 
     if (this.playerID) {
@@ -27,6 +37,17 @@ export class InicioPage implements OnInit {
     } else {
       console.warn('No hay playerId guardado');
     }
+  }
+
+  obtenerDatosUsuario() {
+    // Escuchamos el estado de autenticación para obtener el nombre
+    authState(this.auth).subscribe(user => {
+      if (user && user.displayName) {
+        // Tomamos solo el primer nombre para el estilo del header
+        this.nombreUsuario = user.displayName.split(' ')[0];
+        console.log('Nombre cargado en inicio:', this.nombreUsuario);
+      }
+    });
   }
 
   cargarStats() {

@@ -5,7 +5,7 @@ import { NosotrosPageModule } from '../app/nosotros/nosotros.module';
 
 const routes: Routes = [
   {
-    path: 'principal',
+    path: '',
     component: PrincipalPage,
     children: [
       {

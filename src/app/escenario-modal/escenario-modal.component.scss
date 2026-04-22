@@ -1,28 +1,136 @@
+/* ========================= */
+/* FONDO GENERAL */
+/* ========================= */
 .modal-content {
-  --background: #0b0f14;
-  color: white;
-  padding: 16px;
+  --background: linear-gradient(180deg, #020617, #0f172a);
+
+  /* 👇 TIPOGRAFÍA GLOBAL */
+  font-family: 'Open Sans', sans-serif;
+
+  color: #ffffff;
+  padding: 0;
 }
 
+/* ========================= */
+/* HEADER */
+/* ========================= */
 .modal-header {
-  display: flex;
-  justify-content: flex-end;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
 }
 
 .modal-header ion-icon {
-  font-size: 28px;
+  font-size: 30px;
+  color: #00ffff; /* 👈 color principal */
+  background: rgba(0,0,0,0.4);
+  padding: 8px;
+  border-radius: 50%;
+  backdrop-filter: blur(6px);
+}
+
+/* ========================= */
+/* HERO IMAGE */
+/* ========================= */
+.imagen {
+  width: 100%;
+  height: 45vh;
+  overflow: hidden;
+  position: relative;
 }
 
 .imagen img {
   width: 100%;
-  border-radius: 14px;
-  margin-bottom: 16px;
+  height: 100%;
+  object-fit: cover;
+
+  /* 👇 mejor visibilidad */
+  filter: brightness(0.95) contrast(1.1);
 }
 
+/* degradado suave */
+.imagen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.1) 40%,
+    rgba(2,6,23,0.9) 100%
+  );
+}
+
+/* ========================= */
+/* CONTENIDO */
+/* ========================= */
+.info {
+  margin-top: -40px;
+  border-radius: 24px 24px 0 0;
+
+  padding: clamp(22px, 5vw, 32px);
+
+  background: #0b0f14;
+  backdrop-filter: blur(12px);
+
+  box-shadow: 0 -10px 30px rgba(0,0,0,0.6);
+
+  animation: fadeIn 0.6s ease;
+}
+
+/* ========================= */
+/* TÍTULO */
+/* ========================= */
 .info h2 {
+  font-size: clamp(24px, 6vw, 28px);
+
+  /* 👇 MISMO COLOR QUE TU DISEÑO */
   color: #00d1b2;
+
+  font-weight: bold;
+  letter-spacing: 1px;
+
+  margin-bottom: 14px;
 }
 
+/* ========================= */
+/* TEXTO */
+/* ========================= */
 .info p {
-  color: #9aa4af;
+  font-size: clamp(15px, 4vw, 16px);
+
+  /* 👇 MISMO GRIS QUE USAS */
+  color: #cccccc;
+
+  line-height: 1.7;
+  text-align: justify;
+
+  margin: 0;
+}
+
+/* ========================= */
+/* ANIMACIÓN */
+/* ========================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+@media (max-width: 480px) {
+  .imagen {
+    height: 40vh;
+  }
+
+  .info {
+    margin-top: -30px;
+  }
 }

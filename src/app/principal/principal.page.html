@@ -1,32 +1,48 @@
-<ion-tabs>
+<ion-header class="ion-no-border">
+  <ion-toolbar class="main-toolbar">
+    <ion-title> <span>BAE</span> Technology</ion-title>
+    
+    <ion-buttons slot="end">
+      <ion-avatar id="open-profile" class="header-avatar">
+        <img [src]="user?.photoURL || 'assets/default-avatar.png'" />
+      </ion-avatar>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
-  <ion-tab-bar slot="bottom">
+<ion-content class="home-content">
+  <ion-modal trigger="open-profile" [initialBreakpoint]="0.35" [breakpoints]="[0, 0.35]" class="profile-modal">
+    <ng-template>
+      <div class="modal-body">
+        <div class="profile-container">
+          <ion-avatar class="modal-avatar">
+            <img [src]="user?.photoURL || 'assets/default-avatar.png'" />
+          </ion-avatar>
+          
+          <div class="user-info">
+            <h2>{{ user?.displayName }}</h2>
+            <small>{{ user?.email }}</small>
+          </div>
 
-  <ion-tab-button tab="inicio">
-    <ion-icon name="home-outline"></ion-icon>
-    <ion-label>Inicio</ion-label>
-  </ion-tab-button>
+          <div class="menu-card logout-action" (click)="logout()">
+            <ion-icon name="log-out-outline"></ion-icon>
+            <div>
+              <p>Cerrar Sesión</p>
+              <small>Finalizar sesión actual</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ion-modal>
 
-  <ion-tab-button tab="lore">
-    <ion-icon name="book-outline"></ion-icon>
-    <ion-label>Lore</ion-label>
-  </ion-tab-button>
-
-  <ion-tab-button tab="rankings">
-    <ion-icon name="trophy-outline"></ion-icon>
-    <ion-label>Ranking</ion-label>
-  </ion-tab-button>
-
-  <ion-tab-button tab="noticias">
-    <ion-icon name="newspaper-outline"></ion-icon>
-    <ion-label>Noticias</ion-label>
-  </ion-tab-button>
-
-  <ion-tab-button tab="nosotros">
-    <ion-icon name="people-outline"></ion-icon>
-    <ion-label>Nosotros</ion-label>
-  </ion-tab-button>
-
-</ion-tab-bar>
-
-</ion-tabs>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom" class="custom-tab-bar">
+      <ion-tab-button tab="inicio"><ion-icon name="home-outline"></ion-icon><ion-label>Inicio</ion-label></ion-tab-button>
+      <ion-tab-button tab="lore"><ion-icon name="book-outline"></ion-icon><ion-label>Lore</ion-label></ion-tab-button>
+      <ion-tab-button tab="rankings"><ion-icon name="trophy-outline"></ion-icon><ion-label>Ranking</ion-label></ion-tab-button>
+      <ion-tab-button tab="noticias"><ion-icon name="newspaper-outline"></ion-icon><ion-label>Noticias</ion-label></ion-tab-button>
+      <ion-tab-button tab="nosotros"><ion-icon name="people-outline"></ion-icon><ion-label>Nosotros</ion-label></ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

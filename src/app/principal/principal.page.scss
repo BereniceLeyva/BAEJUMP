@@ -1,1 +1,93 @@
+/* Aplicamos tus variables de fondo al modal */
+.profile-modal {
+  --background: transparent;
+  
+  &::part(content) {
+    background: radial-gradient(circle at top, #111827, #020617);
+    border-radius: 22px 22px 0 0;
+    border-top: 1px solid rgba(0, 255, 208, 0.2);
+  }
+}
 
+.modal-body {
+  padding: clamp(20px, 5vw, 30px);
+  color: white;
+  
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.modal-avatar {
+  width: 70px;
+  height: 70px;
+  border: 2px solid #00ffd0;
+  box-shadow: 0 0 15px rgba(0, 255, 208, 0.4);
+  margin-bottom: 12px;
+}
+
+.user-info {
+  text-align: center;
+  margin-bottom: 20px;
+  h2 { font-size: 20px; margin: 0; }
+  small { color: #8b949e; }
+}
+
+/* LA CLAVE: El botón de Logout con tus estilos exactos */
+.logout-action {
+  width: 100%;
+  cursor: pointer;
+  
+  /* Tus estilos originales de .menu-card */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: clamp(12px, 3vw, 16px);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+  transition: all 0.25s ease;
+
+  ion-icon {
+    font-size: clamp(18px, 5vw, 22px);
+    color: #ff4d4d; /* Cambiado a rojo para Logout */
+  }
+
+  div p {
+    margin: 0;
+    font-size: clamp(13px, 3.5vw, 15px);
+    color: white;
+  }
+
+  div small {
+    font-size: clamp(10px, 3vw, 12px);
+    color: #8b949e;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 77, 77, 0.1); /* Efecto hover rojizo */
+    box-shadow: 0 0 20px rgba(255, 77, 77, 0.2);
+  }
+}
+
+/* Header con tu estilo */
+.main-toolbar {
+  --background: #111827;
+  --color: white;
+  
+  ion-title span {
+    color: #00ffd0;
+    text-shadow: 0 0 10px rgba(0,255,208,0.6);
+  }
+}
+
+.header-avatar {
+  width: 35px;
+  height: 35px;
+  border: 1.5px solid #00ffd0;
+  margin-right: 10px;
+}

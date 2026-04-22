@@ -1,0 +1,44 @@
+<ion-content class="login-content">
+  <div class="login-container">
+    
+    <div class="avatar-section">
+      <div class="avatar-glow">
+        <img src="assets/img/logo_BAE.png" alt="BAE Logo">
+      </div>
+      <h1 class="titulo-login">BAE TECHNOLOGY</h1>
+      <p class="subtitle">Inicio de sesión</p>
+    </div>
+
+    <div class="form-card">
+      <div class="input-group">
+        <ion-label>Correo</ion-label>
+        <ion-item lines="none" class="custom-input">
+          <ion-icon name="mail-outline" slot="start"></ion-icon>
+          <ion-input type="email" [(ngModel)]="email" placeholder="usuario@bae.com"></ion-input>
+        </ion-item>
+      </div>
+
+      <div class="input-group">
+        <ion-label>Contraseña</ion-label>
+        <ion-item lines="none" class="custom-input">
+          <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+          <ion-input type="password" [(ngModel)]="password" placeholder="••••••••"></ion-input>
+        </ion-item>
+      </div>
+
+      <ion-button expand="block" class="btn-login" (click)="onLogin()" mode="ios">
+        INICIAR SESIÓN
+      </ion-button>
+
+      <div class="separator">
+        <span>O INICIA SESIO CON</span>
+      </div>
+
+      <ion-button expand="block" fill="outline" class="btn-google" (click)="loginWithGoogle()" mode="ios">
+        <ion-icon name="logo-google" slot="start"></ion-icon>
+        INICIAR SESIÓN CON GOOGLE
+      </ion-button>
+    </div>
+
+  </div>
+</ion-content>

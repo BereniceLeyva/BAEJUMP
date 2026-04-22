@@ -1,15 +1,23 @@
+/* ========================= */
+/* CONTENIDO GENERAL */
+/* ========================= */
 .lore-content {
   --background: #0b0f14;
   padding: 16px;
   color: white;
+  /* Centrado y adaptable */
+  max-width: 800px;
+  margin: 0 auto;
 }
 
+/* ========================= */
 /* HEADER */
+/* ========================= */
 .lore-header {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 16px;
+  padding: 16px 0;
 }
 
 /* Botón circular */
@@ -21,6 +29,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .back-button ion-icon {
@@ -28,20 +37,18 @@
   color: white;
 }
 
-/* CONTENEDOR TEXTOS */
+/* Títulos */
 .titles {
   display: flex;
   flex-direction: column;
 }
 
-/* SUBTITULO */
 .subtitle {
   font-size: 12px;
   color: #8a8f98;
   margin: 0;
 }
 
-/* TITULO PRINCIPAL */
 .lore-header h1 {
   font-size: 22px;
   margin: 0;
@@ -49,7 +56,9 @@
   font-weight: bold;
 }
 
+/* ========================= */
 /* CONTENEDOR PRINCIPAL */
+/* ========================= */
 .chapter-container {
   background: #161b22;
   border-radius: 16px;
@@ -57,10 +66,10 @@
   margin-bottom: 16px;
 }
 
-/* BANNER */
+/* Banner */
 .chapter-banner {
   position: relative;
-  height: 140px;
+  height: 160px; /* Un poco más alto para que luzca la portada */
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 10px;
@@ -70,21 +79,22 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.5;
+  opacity: 0.6; /* Un poco más de opacidad para ver el diseño */
 }
 
-/* OVERLAY */
+/* Overlay */
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, #000, transparent);
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
 }
 
-/* TEXTO SOBRE IMAGEN */
+/* Texto sobre imagen */
 .chapter-text {
   position: absolute;
   bottom: 10px;
   left: 12px;
+  z-index: 2;
 }
 
 .chapter-text small {
@@ -98,21 +108,25 @@
   color: white;
 }
 
-/* HISTORIA */
+/* Historia */
 .story-text {
   color: #9aa4af;
   font-size: 14px;
   line-height: 1.6;
 }
 
-/* TITULOS DE SECCIÓN */
+/* ========================= */
+/* SECCIONES */
+/* ========================= */
 .section-title {
   margin: 16px 0 10px;
   color: #8b949e;
   font-size: 14px;
 }
 
-/* PERSONAJES */
+/* ========================= */
+/* PERSONAJES (CORREGIDO) */
+/* ========================= */
 .character-card {
   display: flex;
   align-items: center;
@@ -132,7 +146,10 @@
   width: 50px;
   height: 50px;
   border-radius: 10px;
-  object-fit: cover;
+  background: #0b0f14; /* Fondo para que el pixel art resalte */
+  /* El secreto para que no se corte: */
+  object-fit: contain; 
+  padding: 4px;
 }
 
 .character-card h4 {
@@ -149,16 +166,19 @@
   color: #8b949e;
 }
 
+/* ========================= */
 /* ESCENARIOS */
+/* ========================= */
 .scenarios-scroll {
   display: flex;
   gap: 12px;
   overflow-x: auto;
-  padding-bottom: 10px;
+  padding-bottom: 15px; /* Espacio para que no se pegue abajo */
+  -webkit-overflow-scrolling: touch;
 }
 
 .scenario-card {
-  min-width: 120px;
+  min-width: 140px;
   height: 100px;
   border-radius: 14px;
   position: relative;
@@ -168,40 +188,35 @@
   padding: 8px;
   font-size: 12px;
   color: white;
+  flex-shrink: 0; /* Evita que se aplasten */
 }
 
-/* FONDOS */
-.forest {
-  background: url('/assets/img/ES1.jpeg') center/cover;
+.scenario-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
 }
 
-.ruins {
-  background: url('/assets/img/ES2.jpeg') center/cover;
-}
+/* Fondos */
+.forest { background: url('/assets/img/level1.png') center/cover no-repeat; }
+.ruins  { background: url('/assets/img/level2.png') center/cover no-repeat; }
+.cave   { background: url('/assets/img/level3.png') center/cover no-repeat; }
 
-.cave {
-  background: url('/assets/img/ES3.jpeg') center/cover;
-}
-
-/* TEXTO ESCENARIOS */
+/* Texto escenarios */
 .scenario-card span {
   position: relative;
   z-index: 2;
+  font-weight: bold;
 }
 
-/* SCROLL PERSONALIZADO (opcional pro) */
+/* Scroll oculto */
 .scenarios-scroll::-webkit-scrollbar {
-  height: 6px;
+  display: none;
 }
 
-.scenarios-scroll::-webkit-scrollbar-thumb {
-  background: #2a2f36;
-  border-radius: 10px;
-}
-
-
-/* 🔥 OCULTAR SCROLL VERTICAL */
-ion-content::part(scroll) {
+.scenarios-scroll {
   scrollbar-width: none;
 }
 
@@ -209,11 +224,6 @@ ion-content::part(scroll)::-webkit-scrollbar {
   display: none;
 }
 
-
-.scenarios-scroll {
+ion-content::part(scroll) {
   scrollbar-width: none;
-}
-
-.scenarios-scroll::-webkit-scrollbar {
-  display: none;
 }
