@@ -17,14 +17,19 @@
       <div class="overlay"></div>
       <div class="chapter-text">
         <small>CAPÍTULO 1</small>
-        <h2>El despertar</h2>
+        <h2>Origen Desconocido</h2>
       </div>
     </div>
 
     <!-- Historia -->
     <div class="story-text">
       <p>
-        Después de años en silencio, las antiguas plataformas de energía del mundo comenzaron a fallar, las Rush Coins, la fuente que mantiene activas las ciudades, empezó a dispersarse entre ruinas y estructuras abandonadas llenas de trampas. Un joven corredor despierta en medio de este caos con una misión clara: recorrer los caminos olvidados, recuperar las monedas y descubrir qué provocó la caída. Cada salto lo acerca más a la verdad… pero también a peligros que nadie había enfrentado antes.
+       Tras años en silencio, las plataformas de energía se reactivaron… pero algo salió mal.
+      Drones hostiles ahora patrullan las estructuras, atacando sin razón aparente y protegiendo un origen desconocido.
+      Despiertas sin respuestas, armado y rodeado de peligro.
+      Para avanzar, solo hay una opción: eliminar a los drones y cruzar cada puerta.
+      Algo te observa.
+      Y mientras más avanzas… más cerca estás de la verdad.
       </p>
     </div>
 
@@ -47,17 +52,17 @@
   <h3 class="section-title">Escenarios</h3>
 
   <div class="scenarios-scroll">
-    <div class="scenario-card forest">
+    <div class="scenario-card forest" (click)="abrirEscenario('origen')">
       <div class="overlay"></div>
-      <span>Bosque ancestral</span>
+      <span>Sector Perdido</span>
     </div>
-    <div class="scenario-card ruins">
+    <div class="scenario-card ruins" (click)="abrirEscenario('codigo')">
       <div class="overlay"></div>
-      <span>Ruinas de piedra</span>
+      <span>Ciudad Silenciosa</span>
     </div>
-    <div class="scenario-card cave">
+    <div class="scenario-card cave" (click)="abrirEscenario('senal')">
       <div class="overlay"></div>
-      <span>Cueva oscura</span>
+      <span>El Núcleo</span>
     </div>
   </div>
 

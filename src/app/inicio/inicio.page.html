@@ -3,27 +3,24 @@
   <!-- HEADER -->
   <div class="header">
     <p class="welcome">Bienvenido</p>
-    <h1><span>BAE</span> Games</h1>
+    <h1><span>BAE</span> Technology</h1>
   </div>
 
   <!-- GAME CARD -->
   <div class="game-card">
-    <img src="assets/img/Jump.jpeg" alt="JumpRush">
-
+    <img src="assets/img/logoFinal.png" alt="JumpRush">
     <div class="overlay"></div>
-
     <div class="badge">NUEVO</div>
 
     <div class="game-info">
       <h2>JumpRush</h2>
-      <p>Pixel Art - Endless Runner</p>
+      <p>"Elimina.Avanza.Descubre la Verdad"</p>
     </div>
   </div>
 
   <!-- BOTONES -->
   <div class="menu-buttons">
     
-    <!-- Rankings -->
     <div class="menu-card" (click)="irRankings()">
       <ion-icon name="trophy-outline"></ion-icon>
       <div>
@@ -32,7 +29,6 @@
       </div>
     </div>
 
-    <!-- Noticias -->
     <div class="menu-card" (click)="irNoticias()">
       <ion-icon name="newspaper-outline"></ion-icon>
       <div>
@@ -47,23 +43,25 @@
   <h3 class="stats-title">Tus estadísticas</h3>
 
   <div class="stats">
+
     <div class="stat-card">
       <ion-icon name="trending-up-outline"></ion-icon>
-      <h4>--</h4>
+      <h4>{{ stats?.puntajeMax || 0 }}</h4>
       <small>Puntaje max</small>
     </div>
 
     <div class="stat-card">
       <ion-icon name="time-outline"></ion-icon>
-      <h4>--</h4>
+      <h4>{{ stats?.mejorTiempo || 0 }}</h4>
       <small>Mejor tiempo</small>
     </div>
 
     <div class="stat-card">
       <ion-icon name="game-controller-outline"></ion-icon>
-      <h4>--</h4>
+      <h4>{{ stats?.partidas || 0 }}</h4>
       <small>Partidas</small>
     </div>
+
   </div>
 
 </ion-content>

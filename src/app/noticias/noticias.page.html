@@ -1,5 +1,6 @@
 <ion-content class="dark-bg">
 
+  <!-- HEADER -->
   <div class="custom-header">
     <div class="titles">
       <p class="subtitle">Últimas actualizaciones del juego</p>
@@ -7,12 +8,19 @@
     </div>
   </div>
 
+  <!-- SECCIÓN -->
   <h3 class="section-title">Últimas noticias</h3>
 
+  <!-- LISTA DE NOTICIAS -->
   <div *ngFor="let n of noticias$ | async" class="info-card">
 
-    <img *ngIf="n.imagen" [src]="n.imagen" [alt]="n.titulo" />
+    <!-- IMAGEN -->
+    <div class="image-container" *ngIf="n.imagen">
+      <img [src]="n.imagen" [alt]="n.titulo" />
+      <div class="overlay"></div>
+    </div>
 
+    <!-- CONTENIDO -->
     <div class="content">
       <h4>{{ n.titulo }}</h4>
       <p class="fecha">{{ n.fecha }}</p>
@@ -21,7 +29,8 @@
 
   </div>
 
-  <div *ngIf="(noticias$ | async)?.length === 0" class="info-card">
+  <!-- SIN NOTICIAS -->
+  <div *ngIf="(noticias$ | async)?.length === 0" class="info-card empty">
     <ion-icon name="newspaper-outline"></ion-icon>
     <p>No hay noticias disponibles</p>
   </div>

@@ -172,15 +172,15 @@
 
 /* FONDOS */
 .forest {
-  background: url('/assets/img/esc.jpeg') center/cover;
+  background: url('/assets/img/ES1.jpeg') center/cover;
 }
 
 .ruins {
-  background: url('/assets/img/esc1.jpeg') center/cover;
+  background: url('/assets/img/ES2.jpeg') center/cover;
 }
 
 .cave {
-  background: url('/assets/img/esc3.jpeg') center/cover;
+  background: url('/assets/img/ES3.jpeg') center/cover;
 }
 
 /* TEXTO ESCENARIOS */
@@ -200,3 +200,20 @@
 }
 
 
+/* 🔥 OCULTAR SCROLL VERTICAL */
+ion-content::part(scroll) {
+  scrollbar-width: none;
+}
+
+ion-content::part(scroll)::-webkit-scrollbar {
+  display: none;
+}
+
+
+.scenarios-scroll {
+  scrollbar-width: none;
+}
+
+.scenarios-scroll::-webkit-scrollbar {
+  display: none;
+}

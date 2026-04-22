@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PrincipalPage } from './principal.page';
+import { NosotrosPageModule } from '../app/nosotros/nosotros.module';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
       {
         path: 'noticias',
         loadChildren: () => import('../noticias/noticias.module').then(m => m.NoticiasPageModule)
+      },
+      {
+        path:'nosotros',
+        loadChildren: () => import('../app/nosotros/nosotros.module').then(m => m.NosotrosPageModule)
       },
       {
         path: '',

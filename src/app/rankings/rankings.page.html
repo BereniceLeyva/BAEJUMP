@@ -1,21 +1,18 @@
 <ion-content class="dark-bg">
-
-  <!-- Header personalizado -->
-  <div class="custom-header">
-
-
-    <!-- Textos -->
-    <div class="titles">
+  <div class="main-wrapper">
+    <div class="custom-header">
       <p class="subtitle">Mejores puntajes de todos los tiempos</p>
-      <h1>Rankings globales</h1>
+      <h1 class="main-title">Rankings globales</h1>
     </div>
 
-  </div>
+    <div *ngIf="!rankings || rankings.length === 0" class="card-container">
+      <div class="green-info-card">
+        <ion-icon name="trophy-outline"></ion-icon>
+        <p>Aquí se mostrarán los rankings de <br> <strong>JumpRush</strong></p>
+      </div>
+    </div>
 
-  <!-- Card -->
-  <div class="info-card">
-    <ion-icon name="trophy-outline"></ion-icon>
-    <p>Aquí se mostrarán los rankings de JumpRush</p>
+   <div *ngIf="(rankings?.length ?? 0) > 0" class="list-container">
+       </div>
   </div>
-
 </ion-content>

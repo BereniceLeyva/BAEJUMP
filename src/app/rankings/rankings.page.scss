@@ -1,57 +1,66 @@
 .dark-bg {
-  --background: #0b0f14;
-  color: white;
+  --background: #0b0f14 !important;
+  background-color: #0b0f14 !important;
 }
 
-/* Contenedor header */
-.custom-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px;
-}
-
-/* Botón circular */
-.back-button {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #1a1f26;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.back-button ion-icon {
-  font-size: 20px;
-  color: white;
-}
-
-/* Textos */
-.titles {
-  display: flex;
-  flex-direction: column;
-}
-
-.subtitle {
-  font-size: 12px;
-  color: #8a8f98;
-  margin: 0;
-}
-
-.titles h1 {
-  font-size: 22px;
-  margin: 0;
-  color: #00d1b2;
-  font-weight: bold;
-}
-
-/* Card (por si no lo tenías ya) */
-.info-card {
-  margin: 16px;
+.main-wrapper {
   padding: 20px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #0f3d3e, #0a2c2d);
+}
+
+/* --- TEXTOS DEL HEADER --- */
+.subtitle {
+  font-size: 12px !important;
+  color: #8a8f98 !important;
+  margin-bottom: 5px;
+}
+
+.main-title {
+  font-size: 22px !important;
+  color: #00ffcc !important; /* El color cian de tu imagen */
+  font-weight: bold !important;
+  margin-top: 0;
+}
+
+/* --- 🟢 LA CARD ESTILO ESMERALDA --- */
+.card-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.green-info-card {
+  width: 100%;
+  padding: 50px 20px !important;
+  border-radius: 25px !important;
+  
+  /* Color de fondo exacto: Es un degradado muy oscuro */
+  background: linear-gradient(145deg, #0d3839 0%, #061a1b 100%) !important;
+  
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
   text-align: center;
-  color: #a8f0e6;
+  
+  /* Sombra para que resalte */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 255, 204, 0.1);
+}
+
+.green-info-card ion-icon {
+  font-size: 45px !important;
+  color: #a8f0e6 !important;
+  margin-bottom: 15px !important;
+  --color: #a8f0e6 !important; /* Para asegurar el color en Ionic */
+}
+
+.green-info-card p {
+  color: #a8f0e6 !important;
+  font-size: 18px !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+}
+
+.green-info-card strong {
+  color: #ffffff !important;
 }

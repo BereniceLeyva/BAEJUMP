@@ -1,3 +1,4 @@
+/* FONDO GENERAL */
 .dark-bg {
   --background: #0b0f14;
   color: white;
@@ -7,27 +8,10 @@
 .custom-header {
   display: flex;
   align-items: center;
-  gap: 12px;
   padding: 16px;
 }
 
-/* Botón */
-.back-button {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #1a1f26;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.back-button ion-icon {
-  font-size: 20px;
-  color: white;
-}
-
-/* Textos */
+/* TEXTOS HEADER */
 .titles {
   display: flex;
   flex-direction: column;
@@ -46,34 +30,123 @@
   font-weight: bold;
 }
 
-/* CARD */
+/* TITULO SECCIÓN */
+.section-title {
+  margin: 16px;
+  color: #8b949e;
+  font-size: 14px;
+}
+
+/* CARD PRINCIPAL */
 .info-card {
   margin: 16px;
-  padding: 20px;
   border-radius: 16px;
-  background: linear-gradient(135deg, #0f3d3e, #0a2c2d);
-  text-align: center;
-  color: #a8f0e6;
+  overflow: hidden;
+  background: #161b22;
+  color: white;
 
+  /* 👇 ANIMACIÓN TIPO "RESPIRACIÓN" */
+  animation: floatCard 3s ease-in-out infinite;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* EFECTO AL TOCAR */
+.info-card:active {
+  transform: scale(0.95);
+}
+
+/* EFECTO HOVER */
+.info-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 15px rgba(0, 255, 208, 0.2);
+}
+
+/* CONTENEDOR IMAGEN */
+.image-container {
+  position: relative;
+  width: 100%;
+  background: #000;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
 
-.info-card ion-icon {
-  font-size: 40px;
+/* IMAGEN */
+.image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.7;
+}
+
+/* OVERLAY TIPO LORE */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #000, transparent);
+}
+
+/* CONTENIDO */
+.content {
+  padding: 12px;
+  text-align: left;
+}
+
+.content h4 {
+  margin: 0;
+  font-size: 16px;
   color: #00d1b2;
-  margin-bottom: 10px;
-}
-
-.info-card p {
-  font-size: 14px;
-  color: #b6c2cf;
 }
 
 .fecha {
   font-size: 12px;
   opacity: 0.7;
-  margin-bottom: 5px;
+  margin: 5px 0;
+}
+
+.content p {
+  font-size: 14px;
+  color: #9aa4af;
+}
+
+/* CARD VACÍA */
+.empty {
+  text-align: center;
+  padding: 20px;
+}
+
+.empty ion-icon {
+  font-size: 40px;
+  color: #00d1b2;
+  margin-bottom: 10px;
+}
+
+/* 🔥 ANIMACIÓN TIPO PERSONAJE (IDLE) */
+@keyframes floatCard {
+  0% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(-3px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  75% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+
+ion-content::part(scroll) {
+  scrollbar-width: none;
+}
+
+ion-content::part(scroll)::-webkit-scrollbar {
+  display: none;
 }
