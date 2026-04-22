@@ -1,12 +1,6 @@
 /*
  * App Global CSS
  * ----------------------------------------------------------------------------
- * Put style rules here that you want to apply globally. These styles are for
- * the entire app and not just one component. Additionally, this file can be
- * used as an entry point to import other CSS/Sass files to be included in the
- * output CSS.
- * For more information on global stylesheets, visit the documentation:
- * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
 /* Core CSS required for Ionic components to work properly */
@@ -18,24 +12,14 @@
 @import "@ionic/angular/css/typography.css";
 @import "@ionic/angular/css/display.css";
 
-/* Optional CSS utils that can be commented out */
+/* Optional CSS utils */
 @import "@ionic/angular/css/padding.css";
 @import "@ionic/angular/css/float-elements.css";
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
-
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
-
 
 /* Centrar app como móvil en navegador */
 @media (min-width: 768px) {
@@ -57,35 +41,101 @@
   }
 
   ion-tab-bar {
-  --color-selected: #00ffd0; /* color activo */
-  --color: #8b949e; /* color inactivo */
+    --color-selected: #00ffd0;
+    --color: #8b949e;
   }
 
-  /* opcional: cuando pasas el cursor (hover en web) */
   ion-tab-button:hover {
-  color: #00ffd0;
+    color: #00ffd0;
   }
+
   /* ========================= */
-/* MODAL FULLSCREEN */
-/* ========================= */
-.full-modal {
-  --width: 100%;
-  --height: 100%;
-  --border-radius: 0;
-  --border-width: 0;
+  /* MODAL FULLSCREEN */
+  /* ========================= */
+  .full-modal {
+    --width: 100%;
+    --height: 100%;
+    --border-radius: 0;
+    --border-width: 0;
+  }
+
+  ion-modal.full-modal {
+    --width: 100vw;
+    --height: 100vh;
+    --max-width: 100%;
+    --max-height: 100%;
+    --border-radius: 0;
+  }
+
+  ion-modal.full-modal::part(content) {
+    border-radius: 0;
+    box-shadow: none;
+  }
 }
 
-ion-modal.full-modal {
-  --width: 100vw;
-  --height: 100vh;
-  --max-width: 100%;
-  --max-height: 100%;
-  --border-radius: 0;
+/* ========================================= */
+/* ALERTA PERSONALIZADA (LOGOUT) - CORREGIDA */
+/* ========================================= */
+.custom-alert {
+  /* Forzamos el radio de borde y el fondo principal */
+  --background: #020617 !important; 
+  --border-radius: 22px !important;
+
+  .alert-wrapper {
+    /* Aquí aplicamos el degradado sobre el fondo sólido para evitar transparencia */
+    background: radial-gradient(circle at top, #111827, #020617) !important;
+    border: 1px solid rgba(5, 129, 106, 0.3) !important;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8) !important;
+  }
+
+  .alert-head {
+    padding-top: 24px !important;
+    
+    .alert-title {
+      color: #00ffd0 !important;
+      text-shadow: 0 0 10px rgba(0, 255, 208, 0.6) !important;
+      font-weight: 800 !important;
+      font-size: 22px !important;
+      text-align: center !important;
+    }
+  }
+
+  .alert-message {
+    color: #cbd5e1 !important; /* Un gris más claro para mejor lectura */
+    text-align: center !important;
+    padding: 10px 20px !important;
+    font-size: 16px !important;
+  }
+
+  .alert-button-group {
+    padding: 15px !important;
+    background: rgba(255, 255, 255, 0.03) !important; /* Separación sutil para los botones */
+  }
+
+  .alert-button {
+    color: #ffffff !important;
+    font-weight: bold !important;
+    font-size: 14px !important;
+    
+    /* Botón Cancelar */
+    &:not(.danger-button) {
+      --color: #ffffff !important;
+    }
+
+    /* Botón Salir */
+    &.danger-button {
+      color: #ff4d4d !important;
+      
+      .alert-button-inner {
+        font-weight: 900 !important;
+      }
+    }
+  }
 }
 
-/* quitar sombra tipo ventana */
-ion-modal.full-modal::part(content) {
-  border-radius: 0;
-  box-shadow: none;
-}
+/* Fondo oscurecido con Blur */
+ion-alert.custom-alert::part(backdrop) {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(8px) !important;
+  opacity: 1 !important;
 }

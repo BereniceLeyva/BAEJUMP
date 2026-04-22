@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Auth, signOut, authState, User } from '@angular/fire/auth';
-import { AlertController, IonicModule, ModalController } from '@ionic/angular';
+import { AlertController, IonicModule } from '@ionic/angular'; // Limpiamos ModalController si no se usa aquí
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -32,14 +32,24 @@ export class PrincipalPage implements OnInit {
     const alert = await this.alertCtrl.create({
       header: 'Cerrar Sesión',
       message: '¿Estás seguro de que quieres salir?',
+      // IMPORTANTE: Esta clase activa los estilos neón en global.scss
+      cssClass: 'custom-alert', 
       buttons: [
-        { text: 'Cancelar', role: 'cancel' },
+        { 
+          text: 'Cancelar', 
+          role: 'cancel' 
+        },
         {
           text: 'Salir',
-          cssClass: 'danger',
+          // IMPORTANTE: Esta clase activa el color rojo neón
+          cssClass: 'danger-button', 
           handler: async () => {
-            await signOut(this.auth);
-            this.router.navigate(['/login'], { replaceUrl: true });
+            try {
+              await signOut(this.auth);
+              this.router.navigate(['/login'], { replaceUrl: true });
+            } catch (error) {
+              console.error('Error al cerrar sesión:', error);
+            }
           }
         }
       ]
