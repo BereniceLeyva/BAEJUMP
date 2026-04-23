@@ -4,23 +4,24 @@
     
     <ion-buttons slot="end">
       <ion-avatar id="open-profile" class="header-avatar">
-        <img [src]="user?.photoURL || 'assets/default-avatar.png'" />
+        <img [src]="fotoPerfil" alt="Avatar" />
       </ion-avatar>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="home-content">
+
   <ion-modal trigger="open-profile" [initialBreakpoint]="0.35" [breakpoints]="[0, 0.35]" class="profile-modal">
     <ng-template>
       <div class="modal-body">
         <div class="profile-container">
           <ion-avatar class="modal-avatar">
-            <img [src]="user?.photoURL || 'assets/default-avatar.png'" />
+            <img [src]="fotoPerfil" alt="Avatar Detalle" />
           </ion-avatar>
           
           <div class="user-info">
-            <h2>{{ user?.displayName }}</h2>
+            <h2>{{ user?.displayName || 'Usuario' }}</h2>
             <small>{{ user?.email }}</small>
           </div>
 
@@ -38,11 +39,31 @@
 
   <ion-tabs>
     <ion-tab-bar slot="bottom" class="custom-tab-bar">
-      <ion-tab-button tab="inicio"><ion-icon name="home-outline"></ion-icon><ion-label>Inicio</ion-label></ion-tab-button>
-      <ion-tab-button tab="lore"><ion-icon name="book-outline"></ion-icon><ion-label>Lore</ion-label></ion-tab-button>
-      <ion-tab-button tab="rankings"><ion-icon name="trophy-outline"></ion-icon><ion-label>Ranking</ion-label></ion-tab-button>
-      <ion-tab-button tab="noticias"><ion-icon name="newspaper-outline"></ion-icon><ion-label>Noticias</ion-label></ion-tab-button>
-      <ion-tab-button tab="nosotros"><ion-icon name="people-outline"></ion-icon><ion-label>Nosotros</ion-label></ion-tab-button>
+      <ion-tab-button tab="inicio">
+        <ion-icon name="home-outline"></ion-icon>
+        <ion-label>Inicio</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="lore">
+        <ion-icon name="book-outline"></ion-icon>
+        <ion-label>Lore</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="rankings">
+        <ion-icon name="trophy-outline"></ion-icon>
+        <ion-label>Ranking</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="noticias">
+        <ion-icon name="newspaper-outline"></ion-icon>
+        <ion-label>Noticias</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="nosotros">
+        <ion-icon name="people-outline"></ion-icon>
+        <ion-label>Nosotros</ion-label>
+      </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
+
 </ion-content>

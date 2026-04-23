@@ -1,7 +1,7 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { Auth, signOut, authState, User } from '@angular/fire/auth';
-import { AlertController, IonicModule } from '@ionic/angular'; // Limpiamos ModalController si no se usa aquí
+import { AlertController, IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -14,17 +14,30 @@ import { FormsModule } from '@angular/forms';
 })
 export class PrincipalPage implements OnInit {
   user: User | null = null;
+  
+  // Imagen por defecto inicial
+  fotoPerfil: string = 'assets/img/avatar-default1.jpg';
 
   constructor(
     private auth: Auth, 
     private router: Router,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private cdr: ChangeDetectorRef // Ayuda a que la foto aparezca sin retrasos
   ) {}
 
   ngOnInit() {
-    // Escuchamos el estado del usuario para obtener su foto y datos
     authState(this.auth).subscribe((user) => {
-      this.user = user;
+      if (user) {
+        this.user = user;
+        // Si el usuario tiene foto en Google, la usamos. Si no, la default.
+        this.fotoPerfil = user.photoURL ? user.photoURL : 'assets/img/avatar-default1.jpg';
+        
+        // Forzamos la actualización de la interfaz
+        this.cdr.detectChanges();
+      } else {
+        this.user = null;
+        this.fotoPerfil = 'assets/img/avatar-default1.jpg';
+      }
     });
   }
 
@@ -32,7 +45,6 @@ export class PrincipalPage implements OnInit {
     const alert = await this.alertCtrl.create({
       header: 'Cerrar Sesión',
       message: '¿Estás seguro de que quieres salir?',
-      // IMPORTANTE: Esta clase activa los estilos neón en global.scss
       cssClass: 'custom-alert', 
       buttons: [
         { 
@@ -41,7 +53,6 @@ export class PrincipalPage implements OnInit {
         },
         {
           text: 'Salir',
-          // IMPORTANTE: Esta clase activa el color rojo neón
           cssClass: 'danger-button', 
           handler: async () => {
             try {
