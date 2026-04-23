@@ -26,29 +26,31 @@ export class InicioPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    // 1. Obtener datos del usuario de Google
-    this.obtenerDatosUsuario();
-
-    // 2. Obtener ID guardado para las estadísticas
-    this.playerID = localStorage.getItem('playerId') || '';
-
-    if (this.playerID) {
-      this.cargarStats();
-    } else {
-      console.warn('No hay playerId guardado');
-    }
+    this.inicializarUsuario();
   }
+  inicializarUsuario() {
+  authState(this.auth).subscribe(user => {
+    if (user) {
 
-  obtenerDatosUsuario() {
-    // Escuchamos el estado de autenticación para obtener el nombre
-    authState(this.auth).subscribe(user => {
-      if (user && user.displayName) {
-        // Tomamos solo el primer nombre para el estilo del header
+      // UID REAL
+      this.playerID = user.uid;
+
+      // Guardarlo para Unity
+      localStorage.setItem('playerId', this.playerID);
+
+      // Nombre
+      if (user.displayName) {
         this.nombreUsuario = user.displayName.split(' ')[0];
-        console.log('Nombre cargado en inicio:', this.nombreUsuario);
       }
-    });
-  }
+
+      // Cargar stats
+      this.cargarStats();
+
+    } else {
+      console.warn('Usuario no autenticado');
+    }
+  });
+}
 
   cargarStats() {
     this.rankingService.getStatsJugador(this.playerID)
