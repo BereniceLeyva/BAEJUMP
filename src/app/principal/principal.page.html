@@ -12,9 +12,17 @@
 
 <ion-content class="home-content">
 
-  <ion-modal trigger="open-profile" [initialBreakpoint]="0.35" [breakpoints]="[0, 0.35]" class="profile-modal">
+  <!-- 🔥 MODAL -->
+  <ion-modal 
+    trigger="open-profile" 
+    [initialBreakpoint]="0.6"
+    [breakpoints]="[0, 0.4, 0.6, 0.9]" 
+    class="profile-modal">
+
     <ng-template>
       <div class="modal-body">
+
+        <!-- 🔽 CONTENIDO SCROLLEABLE -->
         <div class="profile-container">
           <ion-avatar class="modal-avatar">
             <img [src]="fotoPerfil" alt="Avatar Detalle" />
@@ -24,19 +32,22 @@
             <h2>{{ user?.displayName || 'Usuario' }}</h2>
             <small>{{ user?.email }}</small>
           </div>
+        </div>
 
-          <div class="menu-card logout-action" (click)="logout()">
-            <ion-icon name="log-out-outline"></ion-icon>
-            <div>
-              <p>Cerrar Sesión</p>
-              <small>Finalizar sesión actual</small>
-            </div>
+        <!-- 🔥 BOTÓN FIJO ABAJO -->
+        <div class="menu-card logout-action" (click)="logout()">
+          <ion-icon name="log-out-outline"></ion-icon>
+          <div>
+            <p>Cerrar Sesión</p>
+            <small>Finalizar sesión actual</small>
           </div>
         </div>
+
       </div>
     </ng-template>
   </ion-modal>
 
+  <!-- 🔽 TABS -->
   <ion-tabs>
     <ion-tab-bar slot="bottom" class="custom-tab-bar">
       <ion-tab-button tab="inicio">

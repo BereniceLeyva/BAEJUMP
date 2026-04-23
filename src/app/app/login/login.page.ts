@@ -1,4 +1,4 @@
-import { Component, NgZone, inject, EnvironmentInjector, runInInjectionContext } from '@angular/core';
+import { Component, NgZone, inject, EnvironmentInjector } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule, ToastController, LoadingController } from '@ionic/angular';
@@ -31,9 +31,13 @@ export class LoginPage {
   private loadingCtrl = inject(LoadingController);
 
   constructor() {
-    // Escucha permanente: Si hay usuario, mándalo a inicio
+    // 🔥 Manejo global del usuario autenticado
     authState(this.auth).subscribe(user => {
       if (user) {
+        // ✅ Guardar UID en localStorage
+        localStorage.setItem('playerId', user.uid);
+
+        // Redirigir al home
         this.navigateToHome();
       }
     });
@@ -42,7 +46,7 @@ export class LoginPage {
   async loginWithGoogle() {
     const loading = await this.loadingCtrl.create({
       message: 'Autenticando...',
-      duration: 5000 // Seguridad por si el popup se queda colgado
+      duration: 5000
     });
     await loading.present();
 
@@ -50,13 +54,8 @@ export class LoginPage {
       const provider = new GoogleAuthProvider();
       provider.setCustomParameters({ prompt: 'select_account' });
 
-      // El Popup resolvió el problema de compatibilidad con Cordova
-      const result = await signInWithPopup(this.auth, provider);
-      
-      if (result.user) {
-        console.log('Login exitoso:', result.user.email);
-        this.navigateToHome();
-      }
+      await signInWithPopup(this.auth, provider);
+      // ❌ Ya no guardamos aquí, authState se encarga
     } catch (error: any) {
       console.error('Error en Google Login:', error.code);
       this.handleAuthError(error.code);
@@ -76,6 +75,7 @@ export class LoginPage {
 
     try {
       await signInWithEmailAndPassword(this.auth, this.email, this.password);
+      // ❌ Tampoco aquí, authState lo maneja
     } catch (error: any) {
       this.handleAuthError(error.code);
     } finally {
@@ -85,7 +85,6 @@ export class LoginPage {
 
   private navigateToHome() {
     this.zone.run(() => {
-      // Usamos navigateByUrl con replaceUrl para limpiar el historial de navegación
       this.router.navigateByUrl('/principal/inicio', { replaceUrl: true });
     });
   }

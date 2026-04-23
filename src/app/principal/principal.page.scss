@@ -1,113 +1,176 @@
-/* Aplicamos tus variables de fondo al modal */
+/* ========================= */
+/* MODAL BASE */
+/* ========================= */
 .profile-modal {
   --background: transparent;
-  
-  &::part(content) {
-    background: radial-gradient(circle at top, #111827, #020617);
-    border-radius: 22px 22px 0 0;
-    border-top: 1px solid rgba(0, 255, 208, 0.2);
-  }
 }
 
+.profile-modal::part(content) {
+  background: radial-gradient(circle at top, #111827, #020617);
+  border-radius: 22px 22px 0 0;
+  border-top: 1px solid rgba(0, 255, 208, 0.2);
+
+  max-height: 90vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========================= */
+/* BODY */
+/* ========================= */
 .modal-body {
-  padding: clamp(20px, 5vw, 30px);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: clamp(16px, 5vw, 30px);
+  padding-bottom: calc(20px + env(safe-area-inset-bottom)); /* 🔥 soporte notch */
   color: white;
-  
-  .profile-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
 }
 
+/* ========================= */
+/* CONTENIDO SCROLL */
+/* ========================= */
+.profile-container {
+  flex: 1;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  padding-bottom: 10px;
+}
+
+/* ========================= */
+/* AVATAR */
+/* ========================= */
 .modal-avatar {
-  width: 70px;
-  height: 70px;
+  width: clamp(60px, 18vw, 90px);
+  height: clamp(60px, 18vw, 90px);
   border: 2px solid #00ffd0;
   box-shadow: 0 0 15px rgba(0, 255, 208, 0.4);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
+/* ========================= */
+/* INFO USUARIO */
+/* ========================= */
 .user-info {
   text-align: center;
-  margin-bottom: 20px;
-  h2 { font-size: 20px; margin: 0; }
-  small { color: #8b949e; }
+  margin-bottom: 10px;
+  padding: 0 10px;
 }
 
-/* LA CLAVE: El botón de Logout con tus estilos exactos */
+.user-info h2 {
+  font-size: clamp(16px, 5vw, 22px);
+  margin: 0;
+  word-break: break-word;
+}
+
+.user-info small {
+  color: #8b949e;
+  font-size: clamp(11px, 3.5vw, 13px);
+  word-break: break-word;
+}
+
+/* ========================= */
+/* LOGOUT */
+/* ========================= */
 .logout-action {
   width: 100%;
-  cursor: pointer;
-  
+  max-width: 420px;
+
+  margin: 0 auto;
+  margin-top: 16px;
+
+  /* 🔥 margen inferior universal (NO se pierde) */
+  margin-bottom: calc(60px + env(safe-area-inset-bottom));
+
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: clamp(12px, 3vw, 16px);
+  gap: 12px;
+
+  padding: clamp(12px, 4vw, 16px);
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(8px);
+
+  background: rgba(2, 6, 23, 0.95);
+  backdrop-filter: blur(10px);
+
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
   transition: all 0.25s ease;
 
-  ion-icon {
-    font-size: clamp(18px, 5vw, 22px);
-    color: #ff4d4d; 
-  }
+  cursor: pointer;
+}
 
-  div p {
-    margin: 0;
-    font-size: clamp(13px, 3.5vw, 15px);
-    color: white;
-  }
+.logout-action ion-icon {
+  font-size: clamp(20px, 6vw, 24px);
+  color: #ff4d4d;
+}
 
-  div small {
-    font-size: clamp(10px, 3vw, 12px);
-    color: #8b949e;
-  }
+.logout-action div {
+  flex: 1;
+}
 
-  &:hover {
-    transform: translateY(-3px);
-    background: rgba(255, 77, 77, 0.1); 
-    box-shadow: 0 0 20px rgba(255, 77, 77, 0.2);
+.logout-action p {
+  margin: 0;
+  font-size: clamp(14px, 4vw, 16px);
+  color: white;
+}
+
+.logout-action small {
+  font-size: clamp(11px, 3vw, 13px);
+  color: #8b949e;
+}
+
+.logout-action:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 77, 77, 0.1);
+  box-shadow: 0 0 20px rgba(255, 77, 77, 0.2);
+}
+
+/* TOUCH */
+@media (max-width: 768px) {
+  .logout-action:active {
+    transform: scale(0.97);
   }
 }
 
-/* Header con tu estilo */
+/* ========================= */
+/* HEADER */
+/* ========================= */
 .main-toolbar {
   --background: #111827;
   --color: white;
-  
-  ion-title span {
-    color: #00ffd0;
-    text-shadow: 0 0 10px rgba(0,255,208,0.6);
-  }
+}
+
+.main-toolbar ion-title span {
+  color: #00ffd0;
+  text-shadow: 0 0 10px rgba(0,255,208,0.6);
 }
 
 .header-avatar {
-  width: 35px;
-  height: 35px;
+  width: clamp(30px, 8vw, 40px);
+  height: clamp(30px, 8vw, 40px);
   border: 1.5px solid #00ffd0;
   margin-right: 10px;
 }
 
-/* ========================================= */
-/* CONFIGURACIÓN DE TABS (ESTADO SELECCIONADO) */
-/* ========================================= */
+/* ========================= */
+/* TABS */
+/* ========================= */
 ion-tab-bar {
-  --background: #020617; /* Fondo oscuro para que resalte el neón */
+  --background: #020617;
   --border-color: rgba(255, 255, 255, 0.05);
   border-top: 1px solid rgba(0, 255, 208, 0.1);
 }
 
 ion-tab-button {
-  --color: #8b949e; /* Color de los tabs no seleccionados */
-  --color-selected: #00ffd0; /* Tu color cian neón para el seleccionado */
-  
-  /* Esto asegura que el brillo se aplique al icono cuando esté activo */
-  &.tab-selected {
-    ion-icon {
-      filter: drop-shadow(0 0 5px rgba(0, 255, 208, 0.6));
-    }
-  }
+  --color: #8b949e;
+  --color-selected: #00ffd0;
+}
+
+ion-tab-button.tab-selected ion-icon {
+  filter: drop-shadow(0 0 5px rgba(0, 255, 208, 0.6));
 }

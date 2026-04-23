@@ -1,49 +1,175 @@
 .login-content {
   --background: #0b0f14;
-  &::part(scroll) { display: flex; align-items: center; justify-content: center; }
+
+  &::part(scroll) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px; // 👈 evita que se pegue a bordes en móvil
+  }
 }
 
-.login-container { width: 100%; max-width: 400px; padding: 20px; }
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 16px;
+}
 
+/* 📱 Ajuste para pantallas muy pequeñas */
+@media (max-width: 360px) {
+  .login-container {
+    padding: 10px;
+  }
+}
+
+/* 🧑‍💻 Ajuste para pantallas grandes */
+@media (min-width: 768px) {
+  .login-container {
+    max-width: 450px;
+    padding: 24px;
+  }
+}
+
+/* ========================= */
+/* AVATAR */
+/* ========================= */
 .avatar-section {
-  text-align: center; margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 24px;
+
   .avatar-glow {
-    width: 100px; height: 100px; margin: 0 auto 10px;
-    background: #161b22; border-radius: 50%;
-    border: 2px solid #00d1b2; display: flex; align-items: center; justify-content: center;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 10px;
+    background: #161b22;
+    border-radius: 50%;
+    border: 2px solid #00d1b2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-shadow: 0 0 15px rgba(0, 209, 178, 0.4);
-    
-    /* MODIFICACIÓN AQUÍ */
-    overflow: hidden; 
-    img { 
-      width: 100%; 
-      height: 100%; 
-      object-fit: cover; 
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
-  .titulo-login { color: #00d1b2; font-size: 20px; letter-spacing: 2px; }
-  .subtitle { color: #4b5563; font-size: 10px; letter-spacing: 1px; }
+
+  .titulo-login {
+    color: #00d1b2;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+  }
+
+  .subtitle {
+    color: #4b5563;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
 }
 
+/* 💻 En pantallas grandes aumenta tamaño */
+@media (min-width: 768px) {
+  .avatar-section {
+    .avatar-glow {
+      width: 110px;
+      height: 110px;
+    }
+
+    .titulo-login {
+      font-size: 22px;
+    }
+  }
+}
+
+/* ========================= */
+/* FORMULARIO */
+/* ========================= */
 .form-card {
-  background: #161b22; border-radius: 20px; padding: 25px;
+  background: #161b22;
+  border-radius: 18px;
+  padding: 20px;
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* 📱 Más compacto en móvil */
+@media (max-width: 480px) {
+  .form-card {
+    padding: 16px;
+  }
+}
+
+/* ========================= */
+/* INPUTS */
+/* ========================= */
 .custom-input {
-  --background: #0b0f14; --color: white; border-radius: 10px; margin-top: 5px;
+  --background: #0b0f14;
+  --color: white;
+  border-radius: 10px;
+  margin-top: 8px;
   border: 1px solid #30363d;
-  ion-icon { color: #00d1b2; }
+
+  ion-icon {
+    color: #00d1b2;
+  }
 }
 
-.btn-login { --background: #00d1b2; --color: #0b0f14; font-weight: bold; margin-top: 20px; }
+/* ========================= */
+/* BOTONES */
+/* ========================= */
+.btn-login {
+  --background: #00d1b2;
+  --color: #0b0f14;
+  font-weight: bold;
+  margin-top: 20px;
+  height: 45px;
+}
 
+/* 📱 Botón más cómodo en móvil */
+@media (max-width: 480px) {
+  .btn-login {
+    height: 50px;
+    font-size: 14px;
+  }
+}
+
+/* ========================= */
+/* SEPARADOR */
+/* ========================= */
 .separator {
-  text-align: center; margin: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.1); line-height: 0.1em;
-  span { background: #161b22; padding: 0 10px; color: #4b5563; font-size: 10px; }
+  text-align: center;
+  margin: 20px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  line-height: 0.1em;
+
+  span {
+    background: #161b22;
+    padding: 0 10px;
+    color: #4b5563;
+    font-size: 10px;
+  }
 }
 
+/* ========================= */
+/* GOOGLE */
+/* ========================= */
 .btn-google {
-  --color: white; --border-color: #30363d; --border-radius: 10px;
-  ion-icon { color: #00d1b2; }
+  --color: white;
+  --border-color: #30363d;
+  --border-radius: 10px;
+  height: 45px;
+
+  ion-icon {
+    color: #00d1b2;
+  }
+}
+
+/* 📱 Ajuste botón Google */
+@media (max-width: 480px) {
+  .btn-google {
+    height: 50px;
+    font-size: 14px;
+  }
 }
